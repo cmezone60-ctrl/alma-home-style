@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALMA Home & Style | Andrea López Mezone</title>
+    <meta name="description" content="ALMA Home &amp; Style — Moda y artículos para el hogar importados: suéteres, tejidos, edredones, licras y más. Envíos a todo el país. Atención por WhatsApp con Andrea López Mezone.">
+    <meta name="author" content="Andrea López Mezone">
+    <meta name="theme-color" content="#5c4033">
+    <link rel="canonical" href="https://USUARIO.github.io/alma-home-style/">
+
+    <!-- Open Graph / redes sociales -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_PE">
+    <meta property="og:site_name" content="ALMA Home &amp; Style">
+    <meta property="og:title" content="ALMA Home &amp; Style | Andrea López Mezone">
+    <meta property="og:description" content="Moda y artículos para el hogar importados. Colección exclusiva 2026. Envíos a todo el país.">
+    <meta property="og:url" content="https://USUARIO.github.io/alma-home-style/">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon (emoji en SVG, sin archivos externos) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏡</text></svg>">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#faf7f2',
+                            100: '#f4efe6',
+                            200: '#e8d8c8',
+                            300: '#d9c2ab',
+                            400: '#c29f83',
+                            500: '#8c6d58',
+                            600: '#755845',
+                            700: '#5c4033',
+                            800: '#4a3429',
+                            900: '#2c1e17',
+                            accent: '#d98a6c',
+                            accentHover: '#b86b4f',
+                            emerald: '#059669'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Georgia', 'serif'],
+                        sans: ['Segoe UI', 'Roboto', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .product-card:hover .product-img {
+            transform: scale(1.06);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #faf7f2;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c29f83;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-brand-50 text-brand-900 font-sans antialiased selection:bg-brand-200">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-brand-700 text-brand-50 text-xs font-medium py-2 px-4 text-center tracking-wider uppercase flex justify-between items-center max-w-full overflow-hidden">
+        <div class="hidden md:block">✨ Colección Exclusiva 2026 Importada</div>
+        <div class="mx-auto md:mx-0">🚚 ENVÍOS A TODO EL PAÍS | 💳 CÍRCULOS DE ELECTRODOMÉSTICOS SIN INTERESES</div>
+        <div class="hidden md:flex items-center space-x-3">
+            <a href="https://wa.me/51900000000" target="_blank" class="hover:underline flex items-center gap-1">
+                <i class="fab fa-whatsapp text-emerald-400"></i> Andrea López Mezone
+            </a>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-brand-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <div class="flex-shrink-0 cursor-pointer" onclick="filterCategory('todos')">
+                    <span class="font-serif text-3xl font-bold tracking-widest text-brand-800 block leading-none">ALMA</span>
+                    <span class="text-[10px] uppercase tracking-[0.25em] text-brand-500 font-semibold block mt-1">Home & Style • Andrea López</span>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="hidden md:flex flex-1 max-w-md mx-8 relative">
+                    <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Buscar suéteres, edredones, licras, esquineros..." class="w-full bg-brand-50 text-sm border border-brand-200 rounded-full py-2.5 pl-10 pr-4 text-brand-900 placeholder-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition-all">
+                    <i class="fas fa-search absolute left-3.5 top-3.5 text-brand-400"></i>
+                </div>
+
+                <!-- Right Actions -->
+                <div class="flex items-center space-x-5">
+                    <button onclick="toggleWishlistModal()" class="relative p-2 text-brand-700 hover:text-brand-accent transition" title="Favoritos">
+                        <i class="far fa-heart text-xl"></i>
+                        <span id="wishlistCount" class="absolute -top-1 -right-1 bg-brand-accent text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </button>
+                    
+                    <button onclick="toggleCartDrawer()" class="relative p-2 bg-brand-100 text-brand-800 hover:bg-brand-200 rounded-full transition flex items-center gap-2 px-3.5 py-2">
+                        <i class="fas fa-shopping-bag text-lg text-brand-700"></i>
+                        <span class="hidden sm:inline font-semibold text-xs">Mi Pedido</span>
+                        <span id="cartCount" class="bg-brand-700 text-white text-xs font-bold px-2 py-0.5 rounded-full">0</span>
+                    </button>
+
+                    <a href="https://wa.me/51900000000?text=Hola%20Andrea,%20quisiera%20consultar%20por%20sus%20productos" target="_blank" class="hidden lg:flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-sm transition">
+                        <i class="fab fa-whatsapp text-base"></i> WhatsApp Directo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Search Bar -->
+        <div class="px-4 pb-3 md:hidden">
+            <div class="relative w-full">
+                <input type="text" id="mobileSearchInput" oninput="handleMobileSearch()" placeholder="Buscar productos..." class="w-full bg-brand-50 text-sm border border-brand-200 rounded-full py-2 pl-9 pr-4 text-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-500">
+                <i class="fas fa-search absolute left-3 top-2.5 text-brand-400 text-xs"></i>
+            </div>
+        </div>
+
+        <!-- Category Nav Links -->
+        <nav class="bg-brand-100/70 border-t border-brand-200/60 overflow-x-auto whitespace-nowrap">
+            <div class="max-w-7xl mx-auto px-4 flex justify-center space-x-6 sm:space-x-8 text-xs font-bold uppercase tracking-wider py-3 text-brand-800">
+                <button onclick="filterCategory('todos')" class="nav-btn active-nav hover:text-brand-accent transition px-2 py-1 rounded" id="btn-todos">✨ Todos los Productos</button>
+                <button onclick="filterCategory('damas-tejidos')" class="nav-btn hover:text-brand-accent transition px-2 py-1 rounded" id="btn-damas-tejidos">🧶 Suéteres & Tejidos</button>
+                <button onclick="filterCategory('damas-licras')" class="nav-btn hover:text-brand-accent transition px-2 py-1 rounded" id="btn-damas-licras">🧘‍♀️ Licras Kiros Active</button>
+                <button onclick="filterCategory('blancos-edredones')" class="nav-btn hover:text-brand-accent transition px-2 py-1 rounded" id="btn-blancos-edredones">🛏️ Edredones 2026</button>
+                <button onclick="filterCategory('blancos-esquineros')" class="nav-btn hover:text-brand-accent transition px-2 py-1 rounded" id="btn-blancos-esquineros">✨ Esquineros King</button>
+                <button onclick="filterCategory('infantil')" class="nav-btn hover:text-brand-accent transition px-2 py-1 rounded" id="btn-infantil">🧸 Cobijas Ovejeras</button>
+                <button onclick="filterCategory('circulos')" class="nav-btn hover:text-brand-accent transition px-2 py-1 rounded text-brand-accent font-extrabold" id="btn-circulos">🍳 Círculos Electro</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-brand-200 via-brand-100 to-brand-50 py-12 md:py-20 border-b border-brand-200 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-7 text-center md:text-left space-y-5">
+                    <span class="inline-block bg-brand-accent/15 text-brand-accent font-bold text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full border border-brand-accent/30">
+                        Novedades Reales • Colección 2026
+                    </span>
+                    <h1 class="font-serif text-3xl sm:text-5xl font-bold text-brand-900 leading-tight">
+                        Moda Exclusiva & Confort Supreme para tu Hogar
+                    </h1>
+                    <p class="text-brand-700 text-sm sm:text-base max-w-xl">
+                        Descubre prendas importadas en tejidos peruanos, licras de compresión Kiros, conjuntos Plus Size y edredones térmicos unicolor seleccionados personalmente por <strong>Andrea López Mezone</strong>.
+                    </p>
+                    <div class="pt-2 flex flex-wrap gap-3 justify-center md:justify-start">
+                        <a href="#catalogo" class="bg-brand-700 hover:bg-brand-800 text-white font-semibold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow-md transition transform hover:-translate-y-0.5">
+                            Explorar Catálogo <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#circulos-section" class="bg-brand-accent hover:bg-brand-accentHover text-white font-semibold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow-md transition transform hover:-translate-y-0.5">
+                            Ver Círculos de Electrodomésticos
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Feature Badges -->
+                <div class="md:col-span-5 bg-white/80 backdrop-blur border border-brand-200 p-6 rounded-2xl shadow-xl space-y-4">
+                    <div class="flex items-center gap-4 p-3 bg-brand-50 rounded-xl">
+                        <div class="w-12 h-12 bg-brand-500 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-brand-900">Tejidos & Algodón Premium</h4>
+                            <p class="text-xs text-brand-600">Materiales suaves, antialérgicos e importados.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-3 bg-brand-50 rounded-xl">
+                        <div class="w-12 h-12 bg-brand-accent text-white rounded-full flex items-center justify-center font-bold text-xl">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-brand-900">Círculos de Ahorro Fácil</h4>
+                            <p class="text-xs text-brand-600">Paga cuotas fijas mensuales para tus electrodomésticos.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-3 bg-brand-50 rounded-xl">
+                        <div class="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-brand-900">Atención Directa Andrea</h4>
+                            <p class="text-xs text-brand-600">Asesoría personalizada en tallas y colores por chat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Catalog Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="catalogo">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-brand-200">
+            <div>
+                <span class="text-brand-accent font-bold text-xs uppercase tracking-widest block mb-1">Catálogo Oficial con Fotos Reales</span>
+                <h2 id="currentCategoryTitle" class="font-serif text-2xl sm:text-3xl font-bold text-brand-900">Todos los Productos</h2>
+            </div>
+            <div class="mt-4 md:mt-0 flex items-center gap-3">
+                <span class="text-xs text-brand-600 font-semibold" id="productCount">Cargando catálogo...</span>
+                <select id="sortSelect" onchange="sortProducts()" class="bg-white border border-brand-200 rounded-lg text-xs font-semibold px-3 py-2 text-brand-800 focus:outline-none focus:ring-1 focus:ring-brand-500">
+                    <option value="featured">Destacados primero</option>
+                    <option value="price-low">Precio: Menor a Mayor</option>
+                    <option value="price-high">Precio: Mayor a Menor</option>
+                    <option value="name">Nombre A-Z</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Dynamic products injected by JS -->
+        </div>
+
+    </main>
+
+    <!-- Section: Círculos de Electrodomésticos -->
+    <section class="bg-white py-16 border-t border-b border-brand-200" id="circulos-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="bg-brand-accent/15 text-brand-accent text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full inline-block mb-3">
+                    Ahorro Programado
+                </span>
+                <h2 class="font-serif text-3xl font-bold text-brand-900">Círculos de Electrodomésticos Andrea López</h2>
+                <p class="text-brand-700 text-sm mt-3">
+                    Equipa tu hogar pagando en cuotas fijas super accesibles sin depender de tarjetas de crédito. Súmate a los grupos abiertos o solicita apertura de un nuevo grupo.
+                </p>
+            </div>
+
+            <!-- Circulos Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Circulo Item 1 -->
+                <div class="bg-brand-50 border-2 border-brand-200 rounded-2xl p-6 hover:border-brand-accent transition shadow-sm relative flex flex-col justify-between">
+                    <span class="absolute top-4 right-4 bg-emerald-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        Grupo Activo
+                    </span>
+                    <div>
+                        <div class="w-16 h-16 bg-brand-200 text-brand-800 rounded-2xl flex items-center justify-center text-2xl mb-4">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-lg text-brand-900 mb-1">Freidora de Aire Digital 5.5L</h3>
+                        <p class="text-xs text-brand-600 mb-4">Capacidad familiar, panel táctil digital, antiadherente de alta resistencia.</p>
+
+                        <div class="bg-white p-4 rounded-xl border border-brand-100 mb-4">
+                            <div class="text-xs text-brand-500 font-semibold uppercase tracking-wider">Plan de Pago</div>
+                            <div class="text-2xl font-bold text-brand-accent mt-0.5">10 cuotas de $12.00 <span class="text-xs font-normal text-brand-700">/ mes</span></div>
+                            <div class="text-xs text-brand-700 mt-1 font-medium">Valor Total: $120.00 USD</div>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="space-y-1.5 mb-6">
+                            <div class="flex justify-between text-xs font-semibold text-brand-800">
+                                <span>Cupos Ocupados:</span>
+                                <span class="text-brand-accent">7 de 10 personas</span>
+                            </div>
+                            <div class="w-full bg-brand-200 rounded-full h-2.5">
+                                <div class="bg-brand-accent h-2.5 rounded-full" style="width: 70%"></div>
+                            </div>
+                            <span class="text-[11px] text-emerald-700 font-semibold block pt-1"><i class="fas fa-clock mr-1"></i> ¡Quedan solo 3 cupos libres!</span>
+                        </div>
+                    </div>
+
+                    <button onclick="requestCircle('Freidora de Aire Digital 5.5L', '$12.00 / mes (10 cuotas)')" class="w-full bg-brand-700 hover:bg-brand-800 text-white text-xs font-bold uppercase tracking-wider py-3 rounded-xl shadow transition">
+                        Unirme a este Círculo
+                    </button>
+                </div>
+
+                <!-- Circulo Item 2 -->
+                <div class="bg-brand-50 border-2 border-brand-accent rounded-2xl p-6 shadow-md relative flex flex-col justify-between">
+                    <span class="absolute top-4 right-4 bg-brand-accent text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider animate-pulse">
+                        🔥 ¡Último Cupo!
+                    </span>
+                    <div>
+                        <div class="w-16 h-16 bg-brand-accent/20 text-brand-accent rounded-2xl flex items-center justify-center text-2xl mb-4">
+                            <i class="fas fa-blender"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-lg text-brand-900 mb-1">Licuadora Profesional Ultra 1200W</h3>
+                        <p class="text-xs text-brand-600 mb-4">Vaso de vidrio templado, 6 cuchillas de acero inoxidable pica hielo.</p>
+
+                        <div class="bg-white p-4 rounded-xl border border-brand-100 mb-4">
+                            <div class="text-xs text-brand-500 font-semibold uppercase tracking-wider">Plan de Pago</div>
+                            <div class="text-2xl font-bold text-brand-accent mt-0.5">8 cuotas de $10.00 <span class="text-xs font-normal text-brand-700">/ mes</span></div>
+                            <div class="text-xs text-brand-700 mt-1 font-medium">Valor Total: $80.00 USD</div>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="space-y-1.5 mb-6">
+                            <div class="flex justify-between text-xs font-semibold text-brand-800">
+                                <span>Cupos Ocupados:</span>
+                                <span class="text-brand-accent">9 de 10 personas</span>
+                            </div>
+                            <div class="w-full bg-brand-200 rounded-full h-2.5">
+                                <div class="bg-brand-accent h-2.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                            <span class="text-[11px] text-red-600 font-semibold block pt-1"><i class="fas fa-fire mr-1"></i> ¡Inicia este mes al completarse!</span>
+                        </div>
+                    </div>
+
+                    <button onclick="requestCircle('Licuadora Profesional Ultra 1200W', '$10.00 / mes (8 cuotas)')" class="w-full bg-brand-accent hover:bg-brand-accentHover text-white text-xs font-bold uppercase tracking-wider py-3 rounded-xl shadow transition">
+                        Reservar Último Cupo
+                    </button>
+                </div>
+
+                <!-- Circulo Item 3 -->
+                <div class="bg-brand-50 border-2 border-brand-200 rounded-2xl p-6 hover:border-brand-accent transition shadow-sm relative flex flex-col justify-between">
+                    <span class="absolute top-4 right-4 bg-brand-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        Nuevo Grupo
+                    </span>
+                    <div>
+                        <div class="w-16 h-16 bg-brand-200 text-brand-800 rounded-2xl flex items-center justify-center text-2xl mb-4">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-lg text-brand-900 mb-1">Set Ollas Antiadherentes 12 Pcs</h3>
+                        <p class="text-xs text-brand-600 mb-4">Batería de cocina completa con revestimiento granito de alta duración.</p>
+
+                        <div class="bg-white p-4 rounded-xl border border-brand-100 mb-4">
+                            <div class="text-xs text-brand-500 font-semibold uppercase tracking-wider">Plan de Pago</div>
+                            <div class="text-2xl font-bold text-brand-accent mt-0.5">10 cuotas de $15.00 <span class="text-xs font-normal text-brand-700">/ mes</span></div>
+                            <div class="text-xs text-brand-700 mt-1 font-medium">Valor Total: $150.00 USD</div>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="space-y-1.5 mb-6">
+                            <div class="flex justify-between text-xs font-semibold text-brand-800">
+                                <span>Cupos Ocupados:</span>
+                                <span class="text-brand-accent">5 de 10 personas</span>
+                            </div>
+                            <div class="w-full bg-brand-200 rounded-full h-2.5">
+                                <div class="bg-brand-accent h-2.5 rounded-full" style="width: 50%"></div>
+                            </div>
+                            <span class="text-[11px] text-brand-600 font-semibold block pt-1"><i class="fas fa-users mr-1"></i> 5 cupos disponibles</span>
+                        </div>
+                    </div>
+
+                    <button onclick="requestCircle('Set Ollas Antiadherentes 12 Pcs', '$15.00 / mes (10 cuotas)')" class="w-full bg-brand-700 hover:bg-brand-800 text-white text-xs font-bold uppercase tracking-wider py-3 rounded-xl shadow transition">
+                        Unirme a este Círculo
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Client Trust -->
+    <section class="py-16 bg-brand-100/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-brand-accent font-bold text-xs uppercase tracking-widest block mb-1">Clientes Satisfechos</span>
+                <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-900">Opiniones Reales de la Comunidad</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-brand-200 shadow-sm">
+                    <div class="text-amber-400 text-sm mb-3">★★★★★</div>
+                    <p class="text-xs text-brand-700 italic mb-4">"El edredón Home Essentials 2026 en color rosa nude llegó intacto. Es súper calientito y el acabado unicolor se ve elegantísimo en mi cama Matrimonial."</p>
+                    <div class="font-bold text-xs text-brand-900">— Valeria M. (Compradora Verificada)</div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-brand-200 shadow-sm">
+                    <div class="text-amber-400 text-sm mb-3">★★★★★</div>
+                    <p class="text-xs text-brand-700 italic mb-4">"Las licras Kiros de compresión moldean precioso y no se traslucen nada. Andrea me asesoró personalmente con la talla por WhatsApp."</p>
+                    <div class="font-bold text-xs text-brand-900">— Carmen R. (Cliente Frecuente)</div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-brand-200 shadow-sm">
+                    <div class="text-amber-400 text-sm mb-3">★★★★★</div>
+                    <p class="text-xs text-brand-700 italic mb-4">"Ya es el segundo círculo de electrodomésticos en el que participo. Pagué mis cuotas mensuales sin presión y recibí mi freidora tal como acordamos."</p>
+                    <div class="font-bold text-xs text-brand-900">— Sofía T. (Participante de Círculo)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-900 text-brand-100 pt-16 pb-12 border-t border-brand-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-brand-800">
+                
+                <!-- Col 1: Brand -->
+                <div class="space-y-4">
+                    <span class="font-serif text-3xl font-bold tracking-widest text-white block">ALMA</span>
+                    <p class="text-xs text-brand-300 leading-relaxed">
+                        Concept Store fundada por <strong>Andrea López Mezone</strong>. Especialistas en moda femenina e infantil, ropa de cama de alta gama y facilidades de ahorro para el hogar.
+                    </p>
+                    <div class="flex space-x-3 text-lg">
+                        <a href="#" class="w-9 h-9 bg-brand-800 hover:bg-brand-accent text-white rounded-full flex items-center justify-center transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 bg-brand-800 hover:bg-brand-accent text-white rounded-full flex items-center justify-center transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 bg-brand-800 hover:bg-brand-accent text-white rounded-full flex items-center justify-center transition"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Enlaces Rápidos -->
+                <div>
+                    <h4 class="font-serif font-bold text-sm text-white mb-4 uppercase tracking-wider border-b border-brand-800 pb-2">Colecciones</h4>
+                    <ul class="space-y-2 text-xs text-brand-300">
+                        <li><a href="#catalogo" onclick="filterCategory('damas-tejidos')" class="hover:text-white transition">Suéteres & Cardigans Peruanos</a></li>
+                        <li><a href="#catalogo" onclick="filterCategory('damas-licras')" class="hover:text-white transition">Licras Kiros (Largas y Cortas)</a></li>
+                        <li><a href="#catalogo" onclick="filterCategory('blancos-edredones')" class="hover:text-white transition">Edredones Home Essentials 2026</a></li>
+                        <li><a href="#catalogo" onclick="filterCategory('blancos-esquineros')" class="hover:text-white transition">Sábanas Esquineras King 2x2</a></li>
+                        <li><a href="#catalogo" onclick="filterCategory('infantil')" class="hover:text-white transition">Cobijas Ovejeras Disney & Infantiles</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Círculos & Garantía -->
+                <div>
+                    <h4 class="font-serif font-bold text-sm text-white mb-4 uppercase tracking-wider border-b border-brand-800 pb-2">Servicios</h4>
+                    <ul class="space-y-2 text-xs text-brand-300">
+                        <li><a href="#circulos-section" class="hover:text-white transition">Cómo funcionan los Círculos de Ahorro</a></li>
+                        <li><a href="#" class="hover:text-white transition">Guía de Tallas para Licras & Tejidos</a></li>
+                        <li><a href="#" class="hover:text-white transition">Envíos Nacionales y Tiempos de Entrega</a></li>
+                        <li><a href="#" class="hover:text-white transition">Términos y Condiciones de Compra</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contacto Directo -->
+                <div>
+                    <h4 class="font-serif font-bold text-sm text-white mb-4 uppercase tracking-wider border-b border-brand-800 pb-2">Atención al Cliente</h4>
+                    <div class="space-y-3 text-xs text-brand-300">
+                        <p class="flex items-start gap-2">
+                            <i class="fab fa-whatsapp text-emerald-400 text-sm mt-0.5"></i>
+                            <span><strong>WhatsApp Directo:</strong><br>+51 900 000 000 (Andrea López)</span>
+                        </p>
+                        <p class="flex items-start gap-2">
+                            <i class="far fa-envelope text-brand-accent text-sm mt-0.5"></i>
+                            <span><strong>Correo Electrónico:</strong><br>contacto@almahomenstyle.com</span>
+                        </p>
+                        <p class="flex items-start gap-2">
+                            <i class="fas fa-map-marker-alt text-brand-accent text-sm mt-0.5"></i>
+                            <span>Atención personal previa cita y envíos directos.</span>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 text-center text-xs text-brand-400">
+                <p>© 2026 ALMA Home & Style. Marca Registrada de Andrea López Mezone. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Drawer Modal -->
+    <div id="cartDrawer" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden transition-opacity">
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl flex flex-col justify-between">
+            <div class="p-6 border-b border-brand-200 flex justify-between items-center bg-brand-50">
+                <h3 class="font-serif font-bold text-lg text-brand-900 flex items-center gap-2">
+                    <i class="fas fa-shopping-bag text-brand-accent"></i> Mi Pedido Seleccionado
+                </h3>
+                <button onclick="toggleCartDrawer()" class="text-brand-500 hover:text-brand-900 text-xl font-bold">&times;</button>
+            </div>
+
+            <!-- Cart Items List -->
+            <div id="cartDrawerItems" class="p-6 overflow-y-auto flex-1 space-y-4">
+                <!-- Cart items rendered by JS -->
+            </div>
+
+            <!-- Cart Footer -->
+            <div class="p-6 border-t border-brand-200 bg-brand-50 space-y-4">
+                <div class="flex justify-between font-bold text-base text-brand-900">
+                    <span>Total Estimado:</span>
+                    <span id="cartDrawerTotal" class="text-brand-accent">$0.00 USD</span>
+                </div>
+                <p class="text-[11px] text-brand-600">Al hacer clic en finalizar, serás redirigida al WhatsApp directo de <strong>Andrea López Mezone</strong> con el desglose exacto de tu pedido.</p>
+                
+                <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold uppercase tracking-wider py-3.5 rounded-xl text-xs flex items-center justify-center gap-2 shadow-md transition">
+                    <i class="fab fa-whatsapp text-lg"></i> Enviar Pedido por WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl relative max-h-[90vh] flex flex-col md:flex-row">
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 z-10 bg-white/80 hover:bg-white text-brand-900 w-8 h-8 rounded-full flex items-center justify-center font-bold text-lg shadow">
+                &times;
+            </button>
+            
+            <div class="md:w-1/2 bg-brand-100 flex items-center justify-center p-6 relative">
+                <img id="modalImg" src="" alt="Producto" class="max-h-80 w-full object-cover rounded-xl shadow-md">
+            </div>
+
+            <div class="md:w-1/2 p-6 flex flex-col justify-between overflow-y-auto">
+                <div>
+                    <span id="modalCategory" class="text-[10px] font-bold text-brand-accent uppercase tracking-widest block mb-1">Categoría</span>
+                    <h3 id="modalTitle" class="font-serif font-bold text-xl text-brand-900 mb-2">Nombre del Producto</h3>
+                    <div id="modalPrice" class="text-2xl font-bold text-brand-accent mb-3">$0.00 USD</div>
+                    <p id="modalDesc" class="text-xs text-brand-700 leading-relaxed mb-4">Descripción extendida...</p>
+
+                    <!-- Option Selectors -->
+                    <div class="space-y-3 mb-6">
+                        <div>
+                            <label class="block text-xs font-bold text-brand-800 uppercase tracking-wider mb-1">Color Disponible:</label>
+                            <div id="modalColors" class="flex flex-wrap gap-2">
+                                <!-- Color dots -->
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-brand-800 uppercase tracking-wider mb-1">Talla / Medida:</label>
+                            <select id="modalSizeSelect" class="w-full bg-brand-50 border border-brand-200 rounded-lg text-xs font-semibold p-2.5 text-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-500">
+                                <!-- Size options -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <button id="modalAddBtn" onclick="" class="w-full bg-brand-700 hover:bg-brand-800 text-white font-bold uppercase tracking-wider py-3 rounded-xl text-xs transition">
+                        Añadir a mi Pedido
+                    </button>
+                    <button onclick="directWhatsAppModal()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold uppercase tracking-wider py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition">
+                        <i class="fab fa-whatsapp text-base"></i> Consultar Disponibilidad
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toastNotification" class="fixed bottom-5 right-5 bg-brand-800 text-white text-xs font-semibold px-4 py-3 rounded-xl shadow-2xl z-50 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3 border border-brand-600">
+        <i class="fas fa-check-circle text-emerald-400 text-base"></i>
+        <span id="toastMessage">Acción realizada con éxito</span>
+    </div>
+
+    <!-- JavaScript Data and Logic -->
+    <script>
+        // Database linking user's real images + Unsplash high-res previews
+        const products = [
+            {
+                id: 101,
+                name: "Cárdigan Chic Marfil con Lazos Negros",
+                category: "damas-tejidos",
+                categoryLabel: "Suéteres & Tejidos Importados",
+                price: 38.00,
+                badge: "✨ Tendencia 2026",
+                localImage: "127515.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=800&q=80",
+                desc: "Cárdigan de punto suave peruano con abotonadura frontal y lazos satinados negros. Ideal para un look refinado.",
+                colors: ["Blanco Marfil", "Crema Nude", "Negro Elegante"],
+                sizes: ["Talla Única Estándar (S - L)"]
+            },
+            {
+                id: 102,
+                name: "Suéter Off-Shoulder Vino con Lazo Blanco",
+                category: "damas-tejidos",
+                categoryLabel: "Suéteres & Tejidos Importados",
+                price: 42.00,
+                badge: "🔥 Más Vendido",
+                localImage: "127489.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&q=80",
+                desc: "Suéter acanalado ajuste ceñido con escote de hombros descubiertos en contraste. Diseño femenino de alta costura.",
+                colors: ["Vino Tinto / Blanco", "Negro / Blanco", "Marrón / Blanco"],
+                sizes: ["S", "M", "L"]
+            },
+            {
+                id: 103,
+                name: "Cárdigan Tejido Abotonado Rust & Nude",
+                category: "damas-tejidos",
+                categoryLabel: "Suéteres & Tejidos Importados",
+                price: 35.00,
+                badge: "🍂 Importado",
+                localImage: "127515.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=800&q=80",
+                desc: "Cárdigan en hilo de algodón fino con botones de nacar. Textura suave, respirable y sumamente confortable.",
+                colors: ["Terracota", "Beige Cemento", "Verde Olivo"],
+                sizes: ["S", "M", "L"]
+            },
+            {
+                id: 104,
+                name: "Conjunto Tejido Plus Size 'Roselín Dust Rose'",
+                category: "damas-tejidos",
+                categoryLabel: "Conjuntos Plus Size",
+                price: 48.00,
+                badge: "👑 Plus Size Line",
+                localImage: "127511.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80",
+                desc: "Set de 2 piezas: Blusa holgada manga corta con detalles a franjas y pantalón palazzo de tiro alto con cortes laterales.",
+                colors: ["Rosa Viejo", "Nude Beige", "Marrón Wengue", "Negro"],
+                sizes: ["XL (40-42)", "XXL (44-46)", "XXXL (48-50)"]
+            },
+            {
+                id: 201,
+                name: "Licra Larga Kiros Compression High-Waist",
+                category: "damas-licras",
+                categoryLabel: "Licras Kiros Activewear",
+                price: 22.00,
+                badge: "🔥 Control Abdomen",
+                localImage: "127507.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=800&q=80",
+                desc: "Licra larga deportiva Kiros en Suplex pesado. Pretina alta que moldea la cintura, previene la flacidez y cero transparencias.",
+                colors: ["Nude Camel", "Marrón Chocolate", "Verde Olivo", "Azul Francia", "Vino Tinto", "Rosa Fucsia", "Gris", "Negro"],
+                sizes: ["S", "M", "L", "XL"]
+            },
+            {
+                id: 202,
+                name: "Licra Corta Kiros Biker Short Molded",
+                category: "damas-licras",
+                categoryLabel: "Licras Kiros Activewear",
+                price: 16.00,
+                badge: "⚡ Biker Short",
+                localImage: "127505.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=800&q=80",
+                desc: "Biker short deportivo tiro alto pretina anatómica. Diseñado para ofrecer soporte firme y libertad de movimiento.",
+                colors: ["Marrón Moka", "Verde Neón", "Fucsia", "Blanco", "Negro", "Azul", "Naranja"],
+                sizes: ["S", "M", "L"]
+            },
+            {
+                id: 301,
+                name: "Juego de Sábanas & Edredón Unicolor 'Home Essentials 2026'",
+                category: "blancos-edredones",
+                categoryLabel: "Textil Hogar - Edredones",
+                price: 68.00,
+                badge: "🏆 Exclusive 2026 Line",
+                localImage: "127517.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80",
+                desc: "Set Matrimonial acolchado matelasse acolchado térmico. Incluye edredón acolchado unicolor + juego de sábanas suaves y fundas.",
+                colors: ["Rosa Pastel Nude", "Beige Marfil", "Rojo Pasión", "Azul Turquesa", "Gris Manta", "Vino"],
+                sizes: ["Matrimonial (2 Plazas)", "Queen (2.5 Plazas)", "King (3 Plazas)"]
+            },
+            {
+                id: 302,
+                name: "Juego de Sábanas Esquinero King 2x2m",
+                category: "blancos-esquineros",
+                categoryLabel: "Textil Hogar - Sábanas",
+                price: 38.00,
+                badge: "🛏️ Medida King 2x2",
+                localImage: "127513.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80",
+                desc: "Sábana ajustable con elástico en todo el contorno para colchones King (2.00 x 2.00 metros). Calidad resistente al lavado continuo.",
+                colors: ["Turquesa Estampado", "Blanco Puro", "Rosa Chicle", "Verde Esmeralda", "Gris Floral", "Amarillo"],
+                sizes: ["King Size 2.00m x 2.00m"]
+            },
+            {
+                id: 401,
+                name: "Cobija Ovejera Sherpa Disney & Infantiles (1.50kg)",
+                category: "infantil",
+                categoryLabel: "Línea Infantil & Bebés",
+                price: 32.00,
+                badge: "🧸 Reverso Borreguito",
+                localImage: "127509.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80",
+                desc: "Cobija Sherpa térmica de 1.50 kg reverso piel de oveja. Diseños vibrantes de Mickey Mouse, Paw Patrol, Spider-Man, Hello Kitty.",
+                colors: ["Mickey Mouse Black/Red", "Paw Patrol Blue", "Spider-Man Hero", "Hello Kitty Pink", "My Little Pony"],
+                sizes: ["1.50m x 2.20m (1.50 Kg)"]
+            }
+        ];
+
+        // Global State
+        let cart = [];
+        let wishlist = [];
+        let currentCategory = "todos";
+        let modalActiveProduct = null;
+
+        // Initialize App
+        document.addEventListener("DOMContentLoaded", () => {
+            renderProducts(products);
+            updateCartUI();
+        });
+
+        // Render Product Cards with image fallback logic
+        function renderProducts(items) {
+            const grid = document.getElementById("productGrid");
+            grid.innerHTML = "";
+
+            if (items.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-12 bg-white rounded-2xl border border-brand-200 p-8">
+                        <i class="fas fa-search text-4xl text-brand-300 mb-3 block"></i>
+                        <h3 class="font-serif font-bold text-lg text-brand-800">No se encontraron productos</h3>
+                        <p class="text-xs text-brand-600 mt-1">Prueba con otra palabra clave o selecciona otra categoría.</p>
+                        <button onclick="filterCategory('todos')" class="mt-4 bg-brand-700 text-white text-xs font-bold uppercase px-4 py-2 rounded-lg">Ver todo el catálogo</button>
+                    </div>
+                `;
+                document.getElementById("productCount").innerText = "0 productos encontrados";
+                return;
+            }
+
+            document.getElementById("productCount").innerText = `${items.length} productos disponibles`;
+
+            items.forEach(product => {
+                const isWish = wishlist.includes(product.id);
+                const card = document.createElement("div");
+                card.className = "product-card bg-white border border-brand-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group";
+
+                card.innerHTML = `
+                    <div>
+                        <!-- Image Container with fallback -->
+                        <div class="relative bg-brand-100 h-64 overflow-hidden flex items-center justify-center cursor-pointer" onclick="openProductModal(${product.id})">
+                            <img src="${product.localImage}" onerror="this.onerror=null; this.src='${product.fallbackImage}';" alt="${product.name}" class="product-img w-full h-full object-cover transition-transform duration-500">
+                            ${product.badge ? `<span class="absolute top-3 left-3 bg-brand-accent text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider shadow-sm z-10">${product.badge}</span>` : ''}
+                            
+                            <button onclick="event.stopPropagation(); toggleWishlist(${product.id})" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 hover:bg-white text-brand-700 hover:text-brand-accent flex items-center justify-center shadow transition z-10">
+                                <i class="${isWish ? 'fas text-brand-accent' : 'far'} fa-heart text-sm"></i>
+                            </button>
+                        </div>
+
+                        <!-- Content Area -->
+                        <div class="p-5">
+                            <span class="text-[10px] font-bold text-brand-500 uppercase tracking-widest block mb-1">${product.categoryLabel}</span>
+                            <h3 class="font-serif font-bold text-base text-brand-900 group-hover:text-brand-accent transition cursor-pointer leading-snug mb-2" onclick="openProductModal(${product.id})">
+                                ${product.name}
+                            </h3>
+                            <p class="text-xs text-brand-600 line-clamp-2 mb-3 leading-relaxed">${product.desc}</p>
+                            
+                            <div class="text-xs font-semibold text-brand-700 mb-2">
+                                <span class="text-brand-400 font-normal">Variantes:</span> ${product.colors.slice(0, 3).join(", ")}${product.colors.length > 3 ? '...' : ''}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer Action -->
+                    <div class="px-5 pb-5 pt-0 flex items-center justify-between border-t border-brand-100/60 pt-3">
+                        <div>
+                            <span class="text-[10px] text-brand-400 block uppercase font-bold">Precio Contado</span>
+                            <span class="font-bold text-lg text-brand-accent">$${product.price.toFixed(2)} USD</span>
+                        </div>
+                        <button onclick="addToCart(${product.id})" class="bg-brand-700 hover:bg-brand-800 text-white font-bold text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl shadow-sm transition flex items-center gap-1.5">
+                            <i class="fas fa-plus"></i> Pedir
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter Categories
+        function filterCategory(catKey) {
+            currentCategory = catKey;
+            
+            document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("text-brand-accent", "font-extrabold", "bg-white/50"));
+            const activeBtn = document.getElementById(`btn-${catKey}`);
+            if (activeBtn) activeBtn.classList.add("text-brand-accent", "font-extrabold", "bg-white/50");
+
+            const titles = {
+                "todos": "Todos los Productos",
+                "damas-tejidos": "Suéteres, Cardigans & Tejidos Peruanos",
+                "damas-licras": "Licras Kiros Compression & Activewear",
+                "blancos-edredones": "Edredones & Sets Unicolor Home Essentials 2026",
+                "blancos-esquineros": "Sábanas Esquineras King Size 2x2m",
+                "infantil": "Cobijas Ovejeras Infantiles Disney",
+                "circulos": "Círculos de Electrodomésticos"
+            };
+
+            document.getElementById("currentCategoryTitle").innerText = titles[catKey] || "Catálogo de Productos";
+
+            if (catKey === "circulos") {
+                document.getElementById("circulos-section").scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+
+            if (catKey === "todos") {
+                renderProducts(products);
+            } else {
+                const filtered = products.filter(p => p.category === catKey);
+                renderProducts(filtered);
+            }
+        }
+
+        // Search Handlers
+        function handleSearch() {
+            const query = document.getElementById("searchInput").value.toLowerCase().trim();
+            filterByQuery(query);
+        }
+
+        function handleMobileSearch() {
+            const query = document.getElementById("mobileSearchInput").value.toLowerCase().trim();
+            filterByQuery(query);
+        }
+
+        function filterByQuery(query) {
+            if (!query) {
+                filterCategory(currentCategory);
+                return;
+            }
+            const results = products.filter(p => 
+                p.name.toLowerCase().includes(query) || 
+                p.desc.toLowerCase().includes(query) ||
+                p.categoryLabel.toLowerCase().includes(query)
+            );
+            renderProducts(results);
+        }
+
+        // Sorting
+        function sortProducts() {
+            const val = document.getElementById("sortSelect").value;
+            let currentList = currentCategory === "todos" ? [...products] : products.filter(p => p.category === currentCategory);
+
+            if (val === "price-low") currentList.sort((a,b) => a.price - b.price);
+            if (val === "price-high") currentList.sort((a,b) => b.price - a.price);
+            if (val === "name") currentList.sort((a,b) => a.name.localeCompare(b.name));
+
+            renderProducts(currentList);
+        }
+
+        // Modal Product Detail
+        function openProductModal(productId) {
+            const p = products.find(item => item.id === productId);
+            if (!p) return;
+            modalActiveProduct = p;
+
+            document.getElementById("modalTitle").innerText = p.name;
+            document.getElementById("modalCategory").innerText = p.categoryLabel;
+            document.getElementById("modalPrice").innerText = `$${p.price.toFixed(2)} USD`;
+            document.getElementById("modalDesc").innerText = p.desc;
+            
+            const imgContainer = document.getElementById("modalImg");
+            imgContainer.src = p.localImage;
+            imgContainer.onerror = function() {
+                this.onerror = null;
+                this.src = p.fallbackImage;
+            };
+
+            const colorsContainer = document.getElementById("modalColors");
+            colorsContainer.innerHTML = p.colors.map((c, idx) => `
+                <span class="inline-block bg-brand-50 border border-brand-300 text-brand-800 text-[11px] font-semibold px-2.5 py-1 rounded-md cursor-pointer hover:border-brand-accent ${idx === 0 ? 'bg-brand-200 border-brand-accent' : ''}" onclick="selectModalColor(this)">
+                    ${c}
+                </span>
+            `).join("");
+
+            const sizeSelect = document.getElementById("modalSizeSelect");
+            sizeSelect.innerHTML = p.sizes.map(s => `<option value="${s}">${s}</option>`).join("");
+
+            document.getElementById("modalAddBtn").onclick = () => {
+                addToCart(p.id, getSelectedModalColor(), sizeSelect.value);
+                closeProductModal();
+            };
+
+            document.getElementById("productModal").classList.remove("hidden");
+        }
+
+        function selectModalColor(el) {
+            document.querySelectorAll("#modalColors span").forEach(s => s.classList.remove("bg-brand-200", "border-brand-accent"));
+            el.classList.add("bg-brand-200", "border-brand-accent");
+        }
+
+        function getSelectedModalColor() {
+            const active = document.querySelector("#modalColors .border-brand-accent");
+            return active ? active.innerText.trim() : modalActiveProduct.colors[0];
+        }
+
+        function closeProductModal() {
+            document.getElementById("productModal").classList.add("hidden");
+        }
+
+        // Cart Drawer Operations
+        function addToCart(productId, selectedColor, selectedSize) {
+            const p = products.find(item => item.id === productId);
+            if (!p) return;
+
+            const color = selectedColor || p.colors[0];
+            const size = selectedSize || p.sizes[0];
+
+            const existing = cart.find(i => i.id === productId && i.color === color && i.size === size);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({
+                    id: p.id,
+                    name: p.name,
+                    price: p.price,
+                    color: color,
+                    size: size,
+                    qty: 1
+                });
+            }
+
+            updateCartUI();
+            showToast(`¡Agregado: ${p.name.substring(0, 20)}...!`);
+        }
+
+        function updateCartUI() {
+            const totalQty = cart.reduce((acc, i) => acc + i.qty, 0);
+            document.getElementById("cartCount").innerText = totalQty;
+
+            const cartContainer = document.getElementById("cartDrawerItems");
+            cartContainer.innerHTML = "";
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = `
+                    <div class="text-center py-12 text-brand-400">
+                        <i class="fas fa-shopping-bag text-4xl mb-3 block opacity-50"></i>
+                        <p class="text-xs font-semibold">Tu pedido está vacío actualmente.</p>
+                    </div>
+                `;
+                document.getElementById("cartDrawerTotal").innerText = "$0.00 USD";
+                return;
+            }
+
+            let grandTotal = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.qty;
+                grandTotal += itemTotal;
+
+                const row = document.createElement("div");
+                row.className = "flex items-center justify-between bg-brand-50 p-3.5 rounded-xl border border-brand-200";
+                row.innerHTML = `
+                    <div class="flex-1 pr-3">
+                        <h4 class="font-bold text-xs text-brand-900">${item.name}</h4>
+                        <span class="text-[10px] text-brand-600 block">Color: ${item.color} | Talla: ${item.size}</span>
+                        <span class="text-xs font-bold text-brand-accent mt-1 block">$${item.price.toFixed(2)} USD c/u</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="changeQty(${index}, -1)" class="w-6 h-6 bg-white border border-brand-200 text-brand-800 font-bold rounded flex items-center justify-center text-xs">-</button>
+                        <span class="text-xs font-bold">${item.qty}</span>
+                        <button onclick="changeQty(${index}, 1)" class="w-6 h-6 bg-white border border-brand-200 text-brand-800 font-bold rounded flex items-center justify-center text-xs">+</button>
+                        <button onclick="removeItem(${index})" class="text-red-500 hover:text-red-700 text-xs ml-2"><i class="fas fa-trash"></i></button>
+                    </div>
+                `;
+                cartContainer.appendChild(row);
+            });
+
+            document.getElementById("cartDrawerTotal").innerText = `$${grandTotal.toFixed(2)} USD`;
+        }
+
+        function changeQty(index, delta) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function toggleCartDrawer() {
+            document.getElementById("cartDrawer").classList.toggle("hidden");
+        }
+
+        // WhatsApp Checkout
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                showToast("Tu pedido está vacío.");
+                return;
+            }
+
+            let msg = "Hola Andrea López, deseo realizar la compra de los siguientes productos en ALMA Home & Style:\n\n";
+            let total = 0;
+
+            cart.forEach((item, idx) => {
+                const sub = item.price * item.qty;
+                total += sub;
+                msg += `${idx + 1}. *${item.name}*\n   - Color: ${item.color}\n   - Talla/Medida: ${item.size}\n   - Cantidad: ${item.qty}\n   - Subtotal: $${sub.toFixed(2)} USD\n\n`;
+            });
+
+            msg += `*Monto Total Estimado:* $${total.toFixed(2)} USD\n\n`;
+            msg += "Quedo a la espera de sus datos para coordinar el pago y envío. ¡Muchas gracias!";
+
+            const encoded = encodeURIComponent(msg);
+            window.open(`https://wa.me/51900000000?text=${encoded}`, '_blank');
+        }
+
+        function directWhatsAppModal() {
+            if (!modalActiveProduct) return;
+            const size = document.getElementById("modalSizeSelect").value;
+            const color = getSelectedModalColor();
+
+            let msg = `Hola Andrea López, quisiera consultar la disponibilidad inmediata del siguiente producto:\n\n`;
+            msg += `• *Producto:* ${modalActiveProduct.name}\n`;
+            msg += `• *Color elegido:* ${color}\n`;
+            msg += `• *Talla/Medida:* ${size}\n`;
+            msg += `• *Precio:* $${modalActiveProduct.price.toFixed(2)} USD\n\n`;
+            msg += `¿Tiene stock disponible para envío?`;
+
+            const encoded = encodeURIComponent(msg);
+            window.open(`https://wa.me/51900000000?text=${encoded}`, '_blank');
+        }
+
+        function requestCircle(productName, plan) {
+            let msg = `Hola Andrea López, me interesa inscribirme en el *Círculo de Ahorro para Electrodomésticos*:\n\n`;
+            msg += `• *Equipo:* ${productName}\n`;
+            msg += `• *Plan de Cuotas:* ${plan}\n\n`;
+            msg += `Por favor, facilítame los requisitos y números de cuenta para la primera cuota.`;
+
+            const encoded = encodeURIComponent(msg);
+            window.open(`https://wa.me/51900000000?text=${encoded}`, '_blank');
+        }
+
+        // Wishlist
+        function toggleWishlist(id) {
+            const idx = wishlist.indexOf(id);
+            if (idx > -1) {
+                wishlist.splice(idx, 1);
+                showToast("Producto removido de favoritos");
+            } else {
+                wishlist.push(id);
+                showToast("¡Añadido a tus favoritos!");
+            }
+            document.getElementById("wishlistCount").innerText = wishlist.length;
+            renderProducts(currentCategory === "todos" ? products : products.filter(p => p.category === currentCategory));
+        }
+
+        function toggleWishlistModal() {
+            if (wishlist.length === 0) {
+                showToast("No tienes favoritos guardados aún.");
+                return;
+            }
+            const wishProducts = products.filter(p => wishlist.includes(p.id));
+            renderProducts(wishProducts);
+            document.getElementById("currentCategoryTitle").innerText = "Tus Productos Favoritos";
+        }
+
+        // Toast Helper
+        function showToast(msg) {
+            const toast = document.getElementById("toastNotification");
+            document.getElementById("toastMessage").innerText = msg;
+            toast.classList.remove("translate-y-20", "opacity-0");
+            setTimeout(() => {
+                toast.classList.add("translate-y-20", "opacity-0");
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
