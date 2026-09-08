@@ -8,9 +8,9 @@ Sitio estático de una sola página (HTML + [Tailwind CSS](https://tailwindcss.c
 
 ## 🌐 Ver el sitio
 
-👉 https://USUARIO.github.io/alma-home-style/
+👉 https://cmezone60-ctrl.github.io/alma-home-style/
 
-*(reemplaza `USUARIO` por tu usuario de GitHub una vez publicado)*
+*(el sitio ya está publicado)*
 
 ## 📁 Estructura
 
@@ -58,31 +58,22 @@ Para añadir uno nuevo, copia un bloque completo y cambia sus campos:
 }
 ```
 
-## 📞 Antes de publicar
+## ✅ Pendientes
 
 - [ ] Reemplazar el número de WhatsApp de ejemplo `51900000000` por el real
       (aparece 5 veces en `index.html`).
-- [ ] Actualizar `USUARIO` en las etiquetas `og:url` / `canonical` de `index.html`
-      y en este README con la URL final.
-- [ ] Añadir las fotos `.jpg` de los productos.
+- [ ] Añadir las fotos `.jpg` de los productos (ver «Imágenes» arriba).
+- [x] ~~Publicar en GitHub Pages.~~
+- [x] ~~Poner la URL real en `canonical`, `og:url` y este README.~~
 
-## 🚀 Publicar en GitHub Pages
+## 🚀 Publicación
 
-1. Crea un repositorio vacío en GitHub (por ejemplo `alma-home-style`), **sin** README ni licencia.
-2. Conecta y sube este proyecto:
+El sitio ya está publicado con **GitHub Pages** desde la rama `main`, carpeta raíz:
 
-   ```bash
-   git remote add origin https://github.com/USUARIO/alma-home-style.git
-   git push -u origin main
-   ```
+- Repositorio: https://github.com/cmezone60-ctrl/alma-home-style (público)
+- Web: https://cmezone60-ctrl.github.io/alma-home-style/
 
-3. En GitHub: **Settings → Pages → Build and deployment**
-   - *Source*: `Deploy from a branch`
-   - *Branch*: `main` / `/ (root)` → **Save**
-4. En 1–2 minutos la web estará en `https://USUARIO.github.io/alma-home-style/`.
-
-> 💡 Si nombras el repositorio `USUARIO.github.io`, la web quedará directamente en
-> `https://USUARIO.github.io/` (sin subcarpeta).
+La configuración está en **Settings → Pages** del repositorio.
 
 ## 🔄 Actualizar la web
 
