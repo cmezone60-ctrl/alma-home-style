@@ -8,9 +8,7 @@ Sitio estático de una sola página (HTML + [Tailwind CSS](https://tailwindcss.c
 
 ## 🌐 Ver el sitio
 
-👉 https://cmezone60-ctrl.github.io/alma-home-style/
-
-*(el sitio ya está publicado)*
+👉 **https://alma-home-style.onrender.com/**
 
 ## 📁 Estructura
 
@@ -18,7 +16,7 @@ Sitio estático de una sola página (HTML + [Tailwind CSS](https://tailwindcss.c
 .
 ├── index.html      # La página completa: maquetación, catálogo de productos y lógica JS
 ├── 404.html        # Página de error personalizada
-├── .nojekyll       # Evita que GitHub Pages procese el sitio con Jekyll
+├── .nojekyll       # Sin efecto en Render; se conserva por compatibilidad
 ├── .gitignore
 └── *.jpg           # Fotos de productos (ver «Imágenes» más abajo)
 ```
@@ -63,27 +61,43 @@ Para añadir uno nuevo, copia un bloque completo y cambia sus campos:
 - [ ] Reemplazar el número de WhatsApp de ejemplo `51900000000` por el real
       (aparece 5 veces en `index.html`).
 - [ ] Añadir las fotos `.jpg` de los productos (ver «Imágenes» arriba).
-- [x] ~~Publicar en GitHub Pages.~~
+- [x] ~~Publicar la web (Render).~~
 - [x] ~~Poner la URL real en `canonical`, `og:url` y este README.~~
 
 ## 🚀 Publicación
 
-El sitio ya está publicado con **GitHub Pages** desde la rama `main`, carpeta raíz:
+El sitio se sirve desde **Render** como *Static Site*, conectado a este repositorio:
 
-- Repositorio: https://github.com/cmezone60-ctrl/alma-home-style (público)
-- Web: https://cmezone60-ctrl.github.io/alma-home-style/
+- Web: https://alma-home-style.onrender.com/
+- Repositorio: https://github.com/cmezone60-ctrl/alma-home-style
 
-La configuración está en **Settings → Pages** del repositorio.
+Configuración del servicio en Render:
+
+| Ajuste | Valor |
+| --- | --- |
+| Tipo | Static Site |
+| Branch | `main` |
+| Build Command | *(vacío)* |
+| Publish Directory | `.` |
+| Auto-Deploy | **Off** (los despliegues son manuales) |
+| Rewrite | `/*` → `/404.html` |
 
 ## 🔄 Actualizar la web
 
-Cualquier cambio se publica solo con hacer push:
+Como el auto-deploy está desactivado, publicar son **dos pasos separados**:
 
 ```bash
-git add .
+# 1. Guardar los cambios en GitHub (no toca la web en vivo)
+git add -A
 git commit -m "Actualizo el catálogo"
 git push
+
+# 2. Publicar en Render (dispara el despliegue)
+curl "$(cat ~/.alma-render-hook.txt)"
 ```
+
+> 🔐 El *deploy hook* es **secreto** y vive en `C:\Users\cmezo\.alma-render-hook.txt`,
+> deliberadamente **fuera del repositorio**. No debe subirse nunca a GitHub.
 
 ## 💻 Ver en local
 
